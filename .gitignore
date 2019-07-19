@@ -6,3 +6,4 @@ ipch/
 debug/
 DataStructAndAlgorithm/debug/
 *.TMP
+*.user
