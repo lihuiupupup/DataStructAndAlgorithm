@@ -3,3 +3,6 @@ ipch/
 /*.sln
 /*.db
 /*opendb
+debug/
+DataStructAndAlgorithm/debug/
+*.TMP
