@@ -145,10 +145,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LogNAlgorithm.h" />
     <ClInclude Include="MaxSubSequenceSum.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructAndAlgorithm.cpp" />
+    <ClCompile Include="LogNAlgorithm.cpp" />
     <ClCompile Include="MaxSubSequenceSum.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
