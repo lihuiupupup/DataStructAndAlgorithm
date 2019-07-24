@@ -6,6 +6,7 @@
 #include "MaxSubSequenceSum.h"
 #include "LogNAlgorithm.h"
 #include "MyVector.h"
+#include "MyStack.h"
 using namespace std;
 
 int main()
@@ -28,7 +29,8 @@ int main()
 	int pow = logNAlgorithm.pow(11, 3);
 	cout << "the pow:" << pow << endl;*/
 
-	MyVector<int> myVector;
+	//简单向量
+	/*MyVector<int> myVector;
 	try
 	{
 		myVector.back();
@@ -47,7 +49,29 @@ int main()
 	myVector.pop_back();
 	cout << "back:" << myVector.back() << endl;
 
-	cout << myVector[0];
+	cout << myVector[0];*/
+
+	//简单数组栈
+	MyStack<int> myStack;
+	myStack.push(10);
+	myStack.push(140);
+	myStack.push(1320);
+	myStack.push(130);
+	cout << myStack.size() << endl;
+	cout << myStack.pop() << endl;
+    cout << myStack.pop() << endl;
+	cout << myStack.pop() << endl;
+	cout << myStack.pop() << endl;
+	try
+	{
+		cout << myStack.pop() << endl;
+	}
+	catch (const std::exception& ex)
+	{
+		cout << ex.what();
+	}
+
+
 	cin.get();
     return 0;
 }
