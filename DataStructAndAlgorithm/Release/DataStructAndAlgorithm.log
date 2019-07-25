@@ -1,0 +1,8 @@
+﻿  DataStructAndAlgorithm.cpp
+DataStructAndAlgorithm.cpp(97): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  LogNAlgorithm.cpp
+LogNAlgorithm.cpp(73): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  MaxSubSequenceSum.cpp
+MaxSubSequenceSum.cpp(150): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  StackAlgorithm.cpp
+StackAlgorithm.cpp(162): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?

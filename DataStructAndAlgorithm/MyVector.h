@@ -1,14 +1,16 @@
 #pragma once
 #ifndef MY_VECTOR_H_
 #define MY_VECTOR_H_
+#include <iostream>
+#include <exception>
 using namespace std;
 template<typename T>
-#include <exception>
+
 class MyVector
 {
 public:
 	//构造
-	MyVector(int initSize = 0) :size(initSize), capacity(MyEnum::INITCAPCITY)
+	MyVector() :size(0), capacity(MyEnum::INITCAPCITY)
 	{
 		data = new T[MyEnum::INITCAPCITY];
 	}
@@ -56,9 +58,9 @@ public:
 		data[size++] = t;
 	}
 	//删除元素
-	void pop_back()
+	T pop_back()
 	{
-		size--;
+		return data[--size];
 	}
 
 	//返回最后一个元素

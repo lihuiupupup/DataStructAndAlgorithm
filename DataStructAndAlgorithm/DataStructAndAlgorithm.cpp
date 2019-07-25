@@ -7,6 +7,7 @@
 #include "LogNAlgorithm.h"
 #include "MyVector.h"
 #include "MyStack.h"
+#include "StackAlgorithm.h"
 using namespace std;
 
 int main()
@@ -30,29 +31,29 @@ int main()
 	cout << "the pow:" << pow << endl;*/
 
 	//简单向量
-	/*MyVector<int> myVector;
-	try
-	{
-		myVector.back();
-	}
-	catch (const std::exception& e)
-	{
-		cout <<  "err"<< e.what()  << endl;
-	}
-	
-	for (int i = 0; i < 9; i++)
-	{
-		myVector.push_back(i);
-		cout << "capatity:" << myVector.getCapacity() << "size:" << myVector.getSize() << endl;
-	}
-	cout << "back:" << myVector.back() << endl;
-	myVector.pop_back();
-	cout << "back:" << myVector.back() << endl;
+	//MyVector<int> myVector;
+	//try
+	//{
+	//	myVector.back();
+	//}
+	//catch (const std::exception& e)
+	//{
+	//	cout <<  "err"<< e.what()  << endl;
+	//}
+	//
+	//for (int i = 0; i < 9; i++)
+	//{
+	//	myVector.push_back(i);
+	//	cout << "capatity:" << myVector.getCapacity() << "size:" << myVector.getSize() << endl;
+	//}
+	//cout << "back:" << myVector.back() << endl;
+	//myVector.pop_back();
+	//cout << "back:" << myVector.back() << endl;
 
-	cout << myVector[0];*/
+	//cout << myVector[0];
 
 	//简单数组栈
-	MyStack<int> myStack;
+	/*MyStack<int> myStack;
 	myStack.push(10);
 	myStack.push(140);
 	myStack.push(1320);
@@ -69,9 +70,20 @@ int main()
 	catch (const std::exception& ex)
 	{
 		cout << ex.what();
-	}
+	}*/
 
+	//栈的简单应用
+	StackAlgorithm stackAlgorithm;
 
+	cout << stackAlgorithm.checkBrackets("()[]") << endl;
+	cout << stackAlgorithm.checkBrackets("(1+3)-[4*4]}") << endl;
+
+	string str = "((1+2)+4)*(5+5)";
+	
+	string str2 = stackAlgorithm.infixExp2PostExp(str);
+	cout << str2 << endl;
+	
+	
 	cin.get();
     return 0;
 }

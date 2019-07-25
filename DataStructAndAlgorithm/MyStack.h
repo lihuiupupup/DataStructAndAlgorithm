@@ -23,7 +23,8 @@ public:
 		{
 			throw exception("is empty");
 		}
-		return (*data)[topIndex--];
+		topIndex--;
+		return (*data).pop_back();
 	}
 
 	T top()

@@ -147,12 +147,15 @@
   <ItemGroup>
     <ClInclude Include="LogNAlgorithm.h" />
     <ClInclude Include="MaxSubSequenceSum.h" />
+    <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyVector.h" />
+    <ClInclude Include="StackAlgorithm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructAndAlgorithm.cpp" />
     <ClCompile Include="LogNAlgorithm.cpp" />
     <ClCompile Include="MaxSubSequenceSum.cpp" />
+    <ClCompile Include="StackAlgorithm.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
