@@ -15,6 +15,8 @@ public:
 	bool checkBrackets(string str);
 	string infixExp2PostExp(string & str);
 	bool isNum(char ch);
+	int postExpforResult(string & str);
+	int valueOfExp(string & str);
 private:
 
 };

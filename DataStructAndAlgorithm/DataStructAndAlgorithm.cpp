@@ -78,10 +78,10 @@ int main()
 	cout << stackAlgorithm.checkBrackets("()[]") << endl;
 	cout << stackAlgorithm.checkBrackets("(1+3)-[4*4]}") << endl;
 
-	string str = "((1+2)+4)*(5+5)";
+	string str = "(1+4)*2";
 	
-	string str2 = stackAlgorithm.infixExp2PostExp(str);
-	cout << str2 << endl;
+	cout << "the post exp:" << stackAlgorithm.infixExp2PostExp(str) << endl;
+	cout << "the value is:"<<stackAlgorithm.valueOfExp(str) << endl;
 	
 	
 	cin.get();

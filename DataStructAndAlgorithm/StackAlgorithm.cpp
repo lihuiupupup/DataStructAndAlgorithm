@@ -164,3 +164,53 @@ bool StackAlgorithm::isNum(char ch)
 {
 	return ch >= 48 && ch <= 57;
 }
+
+/*
+操作数为0-9正整数 表达式求值 
+因为中缀转后缀时 没有分割操作数 可以再中缀转后缀时 在数字输出结果时多输出‘#’作为操作数结束 并且是以字符为存储对象导致带有小数等都不可用
+*/
+int StackAlgorithm::postExpforResult(string & str)
+{
+	MyStack<char> stack;
+	int size = str.size();
+	int count = 0;
+	while (count < size)
+	{
+		char ch = str[count++];
+		if (isNum(ch))
+		{
+			stack.push(ch);
+		}
+		else
+		{
+			int num2 = stack.pop() - 48;
+			int num1 = stack.pop() - 48;
+			int num3 = 0;
+			if (ch == '+')
+			{
+				num3 = num1 + num2;
+			}
+			else if (ch == '-')
+			{
+				num3 = num1 - num2;
+			}
+			else if (ch == '*')
+			{
+				num3 = num1 * num2;
+			}
+			else if (ch == '/')
+			{
+				num3 = num1 / num2;
+			}
+
+			stack.push(num3 + 48);
+		}
+	}
+	return stack.pop() - 48;
+}
+
+int StackAlgorithm::valueOfExp(string & str)
+{
+	string postExp = infixExp2PostExp(str);
+	return postExpforResult(postExp);
+}
