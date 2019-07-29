@@ -33,6 +33,9 @@
     <ClInclude Include="StackAlgorithm.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MyQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructAndAlgorithm.cpp">

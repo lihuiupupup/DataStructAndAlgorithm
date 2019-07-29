@@ -11,6 +11,20 @@ class MyStack
 public:
 	MyStack();
 	~MyStack();
+	MyStack(const MyStack<T> & s)
+	{
+		operator=(s);
+	}
+	MyStack & operator=(MyStack<T> & s)
+	{
+		if (this == &s)
+		{
+			return s;
+		}
+		delete data;
+		this.topIndex = t.topIndex;
+		this.data = t.data;
+	}
 	void push(T t)
 	{
 		data->push_back(t);

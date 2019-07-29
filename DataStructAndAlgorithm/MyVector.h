@@ -25,11 +25,11 @@ public:
 		operator=(t);
 	}
 	//¸³ÖµÖØÔØ
-	MyVector & operator=(const MyVector<T> & t)
+	MyVector<T> & operator=(MyVector<T> & t)
 	{
-		if (*this == t)
+		if (this == &t)
 		{
-			return;
+			return t;
 		}
 		delete[] data;
 		this->capacity = t.getCapacity();

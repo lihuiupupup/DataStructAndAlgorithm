@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="LogNAlgorithm.h" />
     <ClInclude Include="MaxSubSequenceSum.h" />
+    <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyVector.h" />
     <ClInclude Include="StackAlgorithm.h" />

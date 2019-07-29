@@ -8,6 +8,7 @@
 #include "MyVector.h"
 #include "MyStack.h"
 #include "StackAlgorithm.h"
+#include "MyQueue.h"
 using namespace std;
 
 int main()
@@ -73,7 +74,7 @@ int main()
 	}*/
 
 	//栈的简单应用
-	StackAlgorithm stackAlgorithm;
+	/*StackAlgorithm stackAlgorithm;
 
 	cout << stackAlgorithm.checkBrackets("()[]") << endl;
 	cout << stackAlgorithm.checkBrackets("(1+3)-[4*4]}") << endl;
@@ -81,9 +82,33 @@ int main()
 	string str = "(1+4)*2";
 	
 	cout << "the post exp:" << stackAlgorithm.infixExp2PostExp(str) << endl;
-	cout << "the value is:"<<stackAlgorithm.valueOfExp(str) << endl;
+	cout << "the value is:"<<stackAlgorithm.valueOfExp(str) << endl;*/
+
 	
-	
+	//队列
+	MyQueue<int> myQueue;
+	myQueue.push(9);
+	myQueue.push(9);
+	myQueue.pop();
+	for (int i =0 ;i < 3;i++)
+	{
+		cout << "capacity:"<<myQueue.getCapacity()<<"size:"<<myQueue.getSize() << endl;
+		myQueue.push(i);
+	}
+	MyQueue<int> my;
+	my = myQueue;
+	myQueue.pop();
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "capacity:" << my.getCapacity() << "size:" << my.getSize() << endl;
+		cout << my.pop() << endl;;
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "capacity:" << myQueue.getCapacity() << "size:" << myQueue.getSize() << endl;
+		cout << myQueue.pop() << endl;;
+	}
 	cin.get();
     return 0;
 }
