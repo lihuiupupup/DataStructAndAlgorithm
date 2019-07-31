@@ -9,8 +9,9 @@
 #include "MyStack.h"
 #include "StackAlgorithm.h"
 #include "MyQueue.h"
+#include "BinarySearchTree.h"
 using namespace std;
-
+int compareTo(int num1, int num2);
 int main()
 {
 	//最大子序列和测试
@@ -86,7 +87,7 @@ int main()
 
 	
 	//队列
-	MyQueue<int> myQueue;
+	/*MyQueue<int> myQueue;
 	myQueue.push(9);
 	myQueue.push(9);
 	myQueue.pop();
@@ -108,8 +109,25 @@ int main()
 	{
 		cout << "capacity:" << myQueue.getCapacity() << "size:" << myQueue.getSize() << endl;
 		cout << myQueue.pop() << endl;;
+	}*/
+	BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
+	for (int i = 0; i < 5; i++)
+	{
+		tree->insert(i);
 	}
+	tree->insert(-2);
+	tree->insert(-1);
+	tree->insert(-3);
+	tree->insert(-4);
+	tree->remove(-1);
+	cout << "zz" << endl;
+	tree->print();
 	cin.get();
     return 0;
+}
+
+int compareTo(int num1, int num2)
+{
+	return num1 - num2;
 }
 
