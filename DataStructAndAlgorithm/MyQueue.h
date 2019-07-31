@@ -86,7 +86,6 @@ private:
 	int capacity = INIT_CAPACITY;
 	void resize(int newSize)
 	{
-		cout << "resise:" << newSize << endl;
 		T * oldData = data;
 		
 		
@@ -107,7 +106,6 @@ private:
 		front = 0;
 		back = oldSize;
 		size = oldSize;
-		cout << "szie data ::" << data[0] << " " << data[1] << " " << size << " " << front << " " << back << endl;
 	}
 };
 
