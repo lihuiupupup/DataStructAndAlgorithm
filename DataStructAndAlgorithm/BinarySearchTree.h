@@ -24,6 +24,27 @@ public:
 	}
 	~BinarySearchTree() 
 	{
+		traverseDelete();
+	}
+
+	T  findMax()
+	{
+		return internalFindMax(myRoot);
+	}
+
+	T  findMin()
+	{
+		return internalFindMin(myRoot);
+	}
+
+	bool contains(const T & t)
+	{
+		return internalContains(myRoot,t);
+	}
+
+	void empty()
+	{
+		traverseDelete();
 	}
 
 	bool remove(const T& t)
@@ -191,6 +212,81 @@ private:
 
 			return true;
 		}
+	}
+
+	void traverseDelete()
+	{
+		if (myRoot == NULL)
+		{
+			return;
+		}
+		MyQueue<TreeNode *> myQueue;
+		myQueue.push(myRoot);
+		while (!myQueue.isEmpey())
+		{
+			TreeNode * temp = myQueue.pop();
+			if (temp->left != NULL)
+			{
+				myQueue.push(temp->left);
+			}
+			if (temp->right != NULL)
+			{
+				myQueue.push(temp->right);
+			}
+			delete temp;
+		}
+		myRoot = NULL;
+	}
+
+	bool internalContains(TreeNode * & root,const T & t)
+	{
+		if (root == NULL)
+		{
+			return false;
+		}
+		int result = myComparator(t, root->element);
+		if (result == 0)
+		{
+			return true;
+		}
+		else if(result > 0 )
+		{
+			internalContains(root->right, t);
+		}
+		else
+		{
+			internalContains(root->left, t);
+		}
+	}
+
+	T  internalFindMax(TreeNode * root)
+	{
+		if (root == NULL)
+		{
+			return NULL;
+		}
+		TreeNode * temp = root;
+		while (root != NULL)
+		{
+			temp = root;
+			root = root->right;
+		}
+		return temp->element;
+	}
+
+	T internalFindMin(TreeNode *  root)
+	{
+		if (root == NULL)
+		{
+			return NULL;
+		}
+		TreeNode * temp = root;
+		while (root != NULL)
+		{
+			temp = root;
+			root = root->left;
+		}
+		return temp->element;
 	}
 };
 

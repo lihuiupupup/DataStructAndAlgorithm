@@ -62,7 +62,7 @@ int main()
 	myStack.push(130);
 	cout << myStack.size() << endl;
 	cout << myStack.pop() << endl;
-    cout << myStack.pop() << endl;
+	cout << myStack.pop() << endl;
 	cout << myStack.pop() << endl;
 	cout << myStack.pop() << endl;
 	try
@@ -81,11 +81,11 @@ int main()
 	cout << stackAlgorithm.checkBrackets("(1+3)-[4*4]}") << endl;
 
 	string str = "(1+4)*2";
-	
+
 	cout << "the post exp:" << stackAlgorithm.infixExp2PostExp(str) << endl;
 	cout << "the value is:"<<stackAlgorithm.valueOfExp(str) << endl;*/
 
-	
+
 	//╤сап
 	/*MyQueue<int> myQueue;
 	myQueue.push(9);
@@ -110,20 +110,29 @@ int main()
 		cout << "capacity:" << myQueue.getCapacity() << "size:" << myQueue.getSize() << endl;
 		cout << myQueue.pop() << endl;;
 	}*/
+
 	BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		tree->insert(i);
 	}
 	tree->insert(-2);
 	tree->insert(-1);
 	tree->insert(-3);
-	tree->insert(-4);
+	tree->insert(49);
 	tree->remove(-1);
-	cout << "zz" << endl;
 	tree->print();
+	cout << "lihui" << tree->findMax() << endl;
+	cout << "lihui" << tree->findMin() << endl;
+	tree->empty();
+	cout << "lihui" << endl;
+	tree->insert(-3);
+	cout << "lihui" << tree->contains(-2) << endl;
+	cout << "lihui" << tree->contains(-3) << endl;
+	tree->print();
+
 	cin.get();
-    return 0;
+	return 0;
 }
 
 int compareTo(int num1, int num2)
