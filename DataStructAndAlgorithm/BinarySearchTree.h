@@ -101,18 +101,23 @@ private:
 
 	TreeNode* myRoot;
 
+	/*
+		插入 
+		root 当前根节点
+		t 要插入的元素
+	*/
 	bool internalInsert(TreeNode * & root , const T & t)
 	{
-		if (root == NULL)
+		if (root == NULL) //如果节点为空表明找到合适的位置
 		{
 			root = new TreeNode(t, NULL, NULL);
 			return true;
 		}
-		if(myComparator(t,root->element) > 0)
+		if(myComparator(t,root->element) > 0) //表明在当前节点的右子树
 		{
 			internalInsert(root->right, t);
 		} 
-		else if (myComparator(t, root->element) < 0)
+		else if (myComparator(t, root->element) < 0) //表明在当前节点的左子树
 		{
 			internalInsert(root->left, t);
 		}
@@ -125,6 +130,13 @@ private:
 
 	}
 
+	/*
+	
+		root 当前根节点
+		t 要删除的元素
+		p 当前节点的父亲节点
+		isLeft 是不是在左子树删除
+	*/
 	bool internalDelete(TreeNode * & root, const T & t,TreeNode * & p,bool isLeft)
 	{
 		if (root == NULL) //如果为空表示没有该节点
@@ -133,24 +145,24 @@ private:
 		}
 		else
 		{
-			if (myComparator(t, root->element) == 0)
+			if (myComparator(t, root->element) == 0) //找到该节点 
 			{
-				if (root->left == NULL && root->right == NULL)
+				if (root->left == NULL && root->right == NULL) //表明当前节点是叶子节点 直接删除
 				{
 					delete root;
 					root = NULL;
 					return true;
 				}
-				if (root->left != NULL && root->right == NULL)
+				if (root->left != NULL && root->right == NULL) //表明要删除节点的左子树不为空
 				{
 					if (p != NULL)
 					{
 
-						if (isLeft)
+						if (isLeft) // 若当前节点为父亲节点的左子树的根节点 
 						{
-							TreeNode* tmp = root->left;
-							delete p->left;
-							p->left = tmp;
+							TreeNode* tmp = root->left; //记录当前节点的左子树的根节点
+							delete p->left; // 释放当前节点
+							p->left = tmp;  // 将父亲节点的左孩子指向 tmp 
 						}
 						else
 						{
@@ -183,31 +195,31 @@ private:
 					
 					return true;
 				}
-				if (root->left != NULL && root->right != NULL)
+				if (root->left != NULL && root->right != NULL) //当前节点存在左右子树
 				{
-					if (p != NULL)
+					if (p != NULL) //从右子树中找最小节点放在当前节点即可
 					{
 						TreeNode* min = root->right;
 						TreeNode* pre = root;
-						while (min != NULL)
+						while (min != NULL) //在右子树中找出最小节点
 						{
 							pre = min;
 							min = min->left;
 						}
-						root->element = pre->element;
-						internalDelete(root->right, pre->element, root, false);	
+						root->element = pre->element; //将最小节点的值赋值给当前节点
+						internalDelete(root->right, pre->element, root, false);	 //在当前节点的右子树中删除刚刚找到的最小节点
 						return true;
 					}
 				}
 				
 			}
-			else if(myComparator(t, root->element) < 0)
+			else if(myComparator(t, root->element) < 0) //要删除的节点在左子树
 			{
 				internalDelete(root->left, t,root,true);
 			}
 			else
 			{
-				internalDelete(root->right, t,root,false);
+				internalDelete(root->right, t,root,false); //要删除的节点在右子树
 			}
 
 			return true;

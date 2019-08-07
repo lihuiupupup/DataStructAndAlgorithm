@@ -10,6 +10,7 @@
 #include "StackAlgorithm.h"
 #include "MyQueue.h"
 #include "BinarySearchTree.h"
+#include "AVLTree.h"
 using namespace std;
 int compareTo(int num1, int num2);
 int main()
@@ -111,7 +112,8 @@ int main()
 		cout << myQueue.pop() << endl;;
 	}*/
 
-	BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
+	//¶þ²æËÑË÷Ê÷
+	/*BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
 	for (int i = 0; i < 10; i++)
 	{
 		tree->insert(i);
@@ -129,8 +131,13 @@ int main()
 	tree->insert(-3);
 	cout << "lihui" << tree->contains(-2) << endl;
 	cout << "lihui" << tree->contains(-3) << endl;
-	tree->print();
+	tree->print();*/
 
+    AVLTree<int> * tree = new AVLTree<int>(compareTo);
+	for(int i = 1;i <=90 ;i++)
+	tree->insert(i);
+	tree->remove(6);
+	tree->print();
 	cin.get();
 	return 0;
 }
