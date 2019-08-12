@@ -88,6 +88,18 @@ public:
 		}
 	}
 
+	void midPrint() {
+		internalMidPrint(myRoot);
+	}
+
+	void beforePrint() {
+		internalBeforePrint(myRoot);
+	}
+
+	void afterPrint() {
+		internalAfterPrint(myRoot);
+	}
+
 private:
 	Comarator myComparator;
 
@@ -111,7 +123,7 @@ private:
 		if (root == NULL) //如果节点为空表明找到合适的位置
 		{
 			root = new TreeNode(t, NULL, NULL);
-			return true;
+			
 		}
 		if(myComparator(t,root->element) > 0) //表明在当前节点的右子树
 		{
@@ -124,9 +136,8 @@ private:
 		else
 		{
 			//重复元素不处理
-			return true;
 		}
-		
+		return true;
 
 	}
 
@@ -299,6 +310,41 @@ private:
 			root = root->left;
 		}
 		return temp->element;
+	}
+
+	void internalMidPrint(TreeNode * root)
+	{
+		if (root == NULL)
+		{
+			return;
+		}
+		internalMidPrint(root->left);
+		cout << root->element << endl;
+		internalMidPrint(root->right);
+
+	}
+
+	void internalBeforePrint(TreeNode * root)
+	{
+		if (root == NULL)
+		{
+			return;
+		}
+		cout << root->element << endl;
+		internalBeforePrint(root->left);		
+		internalBeforePrint(root->right);
+
+	}
+
+	void internalAfterPrint(TreeNode * root)
+	{
+		if (root == NULL)
+		{
+			return;
+		}
+		internalAfterPrint(root->left);		
+		internalAfterPrint(root->right);
+		cout << root->element << endl;
 	}
 };
 

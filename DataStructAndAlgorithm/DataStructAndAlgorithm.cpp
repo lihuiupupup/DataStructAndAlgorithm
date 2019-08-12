@@ -113,11 +113,12 @@ int main()
 	}*/
 
 	//¶þ²æËÑË÷Ê÷
-	/*BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
+	BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
 	for (int i = 0; i < 10; i++)
 	{
 		tree->insert(i);
 	}
+	
 	tree->insert(-2);
 	tree->insert(-1);
 	tree->insert(-3);
@@ -131,13 +132,16 @@ int main()
 	tree->insert(-3);
 	cout << "lihui" << tree->contains(-2) << endl;
 	cout << "lihui" << tree->contains(-3) << endl;
-	tree->print();*/
+	
 
-    AVLTree<int> * tree = new AVLTree<int>(compareTo);
+	//AVLÊ÷
+	/*AVLTree<int> * tree = new AVLTree<int>(compareTo);
 	for(int i = 1;i <=90 ;i++)
 	tree->insert(i);
 	tree->remove(6);
-	tree->print();
+	tree->print();*/
+
+	
 	cin.get();
 	return 0;
 }
