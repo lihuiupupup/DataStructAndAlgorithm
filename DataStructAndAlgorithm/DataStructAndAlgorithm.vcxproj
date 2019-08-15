@@ -149,6 +149,7 @@
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="LogNAlgorithm.h" />
     <ClInclude Include="MaxSubSequenceSum.h" />
+    <ClInclude Include="MyHeap.h" />
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyVector.h" />

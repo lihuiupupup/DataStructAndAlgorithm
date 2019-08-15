@@ -11,6 +11,7 @@
 #include "MyQueue.h"
 #include "BinarySearchTree.h"
 #include "AVLTree.h"
+#include "MyHeap.h"
 using namespace std;
 int compareTo(int num1, int num2);
 int main()
@@ -113,12 +114,12 @@ int main()
 	}*/
 
 	//二叉搜索树
-	BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
+	/*BinarySearchTree<int> * tree = new BinarySearchTree<int>(compareTo);
 	for (int i = 0; i < 10; i++)
 	{
 		tree->insert(i);
 	}
-	
+
 	tree->insert(-2);
 	tree->insert(-1);
 	tree->insert(-3);
@@ -131,8 +132,8 @@ int main()
 	cout << "lihui" << endl;
 	tree->insert(-3);
 	cout << "lihui" << tree->contains(-2) << endl;
-	cout << "lihui" << tree->contains(-3) << endl;
-	
+	cout << "lihui" << tree->contains(-3) << endl;*/
+
 
 	//AVL树
 	/*AVLTree<int> * tree = new AVLTree<int>(compareTo);
@@ -141,7 +142,18 @@ int main()
 	tree->remove(6);
 	tree->print();*/
 
-	
+	//最小堆
+	MyHeap<int> * heap = new MyHeap<int>(compareTo);
+	heap->insert(1);
+	for (int i = 70; i > 2; i--) //注意 MyVector初始容量为100 所以堆的最大容量不能超过100
+	{
+		heap->insert(i);
+	}	
+	for (int i = 1; i < 60; i++)
+	{
+		cout << heap->popMin() << endl;
+	}
+
 	cin.get();
 	return 0;
 }

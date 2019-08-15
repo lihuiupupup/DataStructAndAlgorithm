@@ -89,7 +89,7 @@ private:
 	T  * data;
 	enum MyEnum
 	{
-		INITCAPCITY = 4
+		INITCAPCITY = 100
 	};
 
 	//À©ÈÝ
