@@ -12,6 +12,7 @@
 #include "BinarySearchTree.h"
 #include "AVLTree.h"
 #include "MyHeap.h"
+#include "MySort.h"
 using namespace std;
 int compareTo(int num1, int num2);
 int main()
@@ -143,17 +144,25 @@ int main()
 	tree->print();*/
 
 	//最小堆
-	MyHeap<int> * heap = new MyHeap<int>(compareTo);
-	heap->insert(1);
-	for (int i = 70; i > 2; i--) //注意 MyVector初始容量为100 所以堆的最大容量不能超过100
-	{
-		heap->insert(i);
-	}	
-	for (int i = 1; i < 60; i++)
-	{
-		cout << heap->popMin() << endl;
-	}
+	//MyHeap<int> * heap = new MyHeap<int>(compareTo);
+	//heap->insert(1);
+	//for (int i = 70; i > 2; i--) //注意 MyVector初始容量为100 所以堆的最大容量不能超过100
+	//{
+	//	heap->insert(i);
+	//}	
+	//for (int i = 1; i < 60; i++)
+	//{
+	//	cout << heap->popMin() << endl;
+	//}
 
+	MySort mySort;
+	int   arr[] = { 5,3,6,0,-1,-9 };
+	int * arr2 = arr;
+	//mySort.insertSort(arr2, 6);
+	//mySort.shellSort(arr2, 6);
+	
+	//mySort.bubbleSort(arr2, 6);
+	mySort.selectSort(arr2, 6);
 	cin.get();
 	return 0;
 }
