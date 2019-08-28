@@ -156,13 +156,16 @@ int main()
 	//}
 
 	MySort mySort;
-	int   arr[] = { 5,3,6,0,-1,-9 };
+	int   arr[] = { 5,3,6,0,-1,33323,22,7777,44,444};
 	int * arr2 = arr;
 	//mySort.insertSort(arr2, 6);
 	//mySort.shellSort(arr2, 6);
 	
-	//mySort.bubbleSort(arr2, 6);
-	mySort.selectSort(arr2, 6);
+	//mySort.bubbleSort(arr2, 10);
+	//mySort.selectSort(arr2, 6);
+	//mySort.mergeSort(arr2, 10);
+	//mySort.heapSort(arr2, 10);
+	mySort.quickSort(arr2, 10);
 	cin.get();
 	return 0;
 }
