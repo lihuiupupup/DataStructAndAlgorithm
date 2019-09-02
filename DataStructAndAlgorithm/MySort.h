@@ -146,6 +146,29 @@ public:
 
 		printArr(arr, n);
 	}
+
+	void bucketSort(int * & arr, int n)
+	{
+		const int size = 1000;
+		int book[size] = {0};
+		for (int i = 0; i < n; i++)
+		{
+			book[arr[i]]++;
+		}
+		int count = 0;
+		int index = 0;
+		while (count < size)
+		{
+			while (book[count] > 0)
+			{
+				arr[index++] = count;
+				book[count]--;
+			}
+			count++;
+		}
+
+		printArr(arr, n);
+	}
 private:
 
 	void internalQuickSort(int * & arr, int left, int right)
