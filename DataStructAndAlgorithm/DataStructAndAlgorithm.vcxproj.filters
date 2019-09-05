@@ -48,6 +48,9 @@
     <ClInclude Include="MySort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MyGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructAndAlgorithm.cpp">

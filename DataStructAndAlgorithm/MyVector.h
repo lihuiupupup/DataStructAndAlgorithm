@@ -22,7 +22,7 @@ public:
 	//拷贝构造
 	MyVector(const MyVector<T> & t) :data(NULL)
 	{
-		operator=(t);
+		operator=(const_cast<MyVector<T> & >(t));
 	}
 	//赋值重载
 	MyVector<T> & operator=(MyVector<T> & t)
@@ -40,7 +40,7 @@ public:
 			data[i] = t[i];
 		}
 		return *this;
-	}
+	}	
 
 	//索引重载
 	T & operator[](const int i)
@@ -55,8 +55,20 @@ public:
 		{
 			resize(2 * size + 1);
 		}
+		
 		data[size++] = t;
 	}
+
+	void push_back(T &t)
+	{
+		if (size == capacity)
+		{
+			resize(2 * size + 1);
+		}
+
+		data[size++] = t;
+	}
+
 	//删除元素
 	T pop_back()
 	{
@@ -83,6 +95,7 @@ public:
 	{
 		return size;
 	}
+
 private:
 	int size;
 	int capacity;

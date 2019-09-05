@@ -13,6 +13,8 @@
 #include "AVLTree.h"
 #include "MyHeap.h"
 #include "MySort.h"
+#include "MyGraph.h"
+
 using namespace std;
 int compareTo(int num1, int num2);
 int main()
@@ -155,18 +157,26 @@ int main()
 	//	cout << heap->popMin() << endl;
 	//}
 
-	MySort mySort;
-	int   arr[] = { 5,3,6,0,1,323,22,22,44,444};
-	int * arr2 = arr;
-	//mySort.insertSort(arr2, 6);
-	//mySort.shellSort(arr2, 6);
-	
-	//mySort.bubbleSort(arr2, 10);
-	//mySort.selectSort(arr2, 6);
-	//mySort.mergeSort(arr2, 10);
-	//mySort.heapSort(arr2, 10);
-	//mySort.quickSort(arr2, 10);
-	mySort.bucketSort(arr2, 10);
+	//ÅÅÐòÏà¹ØËã·¨
+	//MySort mySort;
+	//int   arr[] = { 5,3,6,0,1,323,22,22,44,444};
+	//int * arr2 = arr;
+	////mySort.insertSort(arr2, 6);
+	////mySort.shellSort(arr2, 6);
+	//
+	////mySort.bubbleSort(arr2, 10);
+	////mySort.selectSort(arr2, 6);
+	////mySort.mergeSort(arr2, 10);
+	////mySort.heapSort(arr2, 10);
+	////mySort.quickSort(arr2, 10);
+	//mySort.bucketSort(arr2, 10);
+
+	MyGraph mygraph;
+	mygraph.createGraph(false);
+	mygraph.printGraph();
+
+	mygraph.dijkstra();
+	cin.get();
 	cin.get();
 	return 0;
 }
