@@ -209,6 +209,93 @@ public:
 			pathIterator++;
 		}
 	}
+
+	//连通图最小生成树
+	void prim()
+	{
+		map<string, int> minTree;
+		map<string, bool> isVisit;
+		map<string, string> path;
+
+		//初始化 最小生成树映射集合 初始状态各顶点没有连通 初始位 INT_MAX
+		for (int i = 0; i < adjList.size(); i++)
+		{
+			minTree[adjList[i].name] = INT_MAX;
+		}
+
+		//初始化isVisit
+		for (int i = 0; i < adjList.size(); i++)
+		{
+			isVisit[adjList[i].name] = false;
+		}
+
+		//初始化path
+		for (int i = 0; i < adjList.size(); i++)
+		{
+			path[adjList[i].name] = "zqy-no-pre";
+		}
+
+
+		//声明一个顶点为抓取起始点 选择第一个 选择其他的顶点可能有不同的最小生成树 但是权值只和一定相同
+		minTree[adjList[0].name] = 0;
+		path[adjList[0].name] = "zqy-root";
+
+		for (;;)
+		{
+			//从未抓取集合找到最小的
+			int minWeight = INT_MAX;
+			string minName = "QAQ";
+			map<string, int>::iterator iterator = minTree.begin();
+			while (iterator != minTree.end())
+			{
+				if (!isVisit[iterator->first] && minWeight > iterator->second)
+				{
+					minWeight = iterator->second;
+					minName = iterator->first;
+				}
+				iterator++;
+			}
+
+			if (minName == "QAQ")
+			{
+				break;
+			}
+
+			isVisit[minName] = true;
+
+			//由于新增顶点到最小生成树 更新其他顶点到改最小生成树的权值
+			IndexVertex & secondIndexVertex = getIndexVertex(minName);
+			EdgeVertex * firstEdgeVertex = secondIndexVertex.firstNode;
+			while (firstEdgeVertex != NULL)
+			{
+				
+				if (!isVisit[firstEdgeVertex->name] && firstEdgeVertex->weight < minTree[firstEdgeVertex->name])
+				{
+					minTree[firstEdgeVertex->name] = firstEdgeVertex->weight;
+					path[firstEdgeVertex->name] = minName;
+				}								
+				firstEdgeVertex = firstEdgeVertex->nextNode;
+			}
+		}
+		
+		cout << endl << "最小生成树前驱 ";
+		map<string, string>::iterator iterator4 = path.begin();
+		while (iterator4 != path.end())
+		{
+			cout << endl << iterator4->first << " " << iterator4->second;
+			iterator4++;
+		}
+
+		cout << endl << "最小生成树权值 ";
+		map<string, int>::iterator iterator3 = minTree.begin();
+		while (iterator3 != minTree.end())
+		{
+			cout << endl << iterator3->first << " " << iterator3->second;
+			iterator3++;
+		}
+
+		
+	}
 private:
 	vector<IndexVertex> adjList;
 	int vertexCount = 0;

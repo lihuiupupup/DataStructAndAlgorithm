@@ -175,7 +175,8 @@ int main()
 	mygraph.createGraph(false);
 	mygraph.printGraph();
 
-	mygraph.dijkstra();
+	//mygraph.dijkstra();
+	mygraph.prim();
 	cin.get();
 	cin.get();
 	return 0;
